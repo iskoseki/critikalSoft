@@ -5,5 +5,5 @@ export default function Container({
 }: {
   children: React.ReactNode
 }){
-return <div className="flex justify-center items-center ">{children}</div>
+return <div className="flex justify-center items-center h-screen">{children}</div>
 }
