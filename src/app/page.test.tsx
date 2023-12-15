@@ -1,14 +1,17 @@
 import "@testing-library/jest-dom"
 import React from "react"
-import {render, screen} from  '@testing-library/react'
+import {render, screen, getByText} from  '@testing-library/react'
 import Home from "./page"
 
 describe("Home", () => {
     it('should render', () => {
-        render(<Home />)
-        const testText = screen.findByText("Contact")
+   const { container } = render(<Home />);
 
-       { /**expect(testText).toBeInTheDocument() **/ }
+  // Obtén el texto completo del componente
+  const componentText = container.textContent || '';
+
+  // Verifica si la palabra "software" está presente en el texto
+  expect(componentText.toLowerCase()).toContain('software');
     })
 
     })
