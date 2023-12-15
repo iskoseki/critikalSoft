@@ -9,6 +9,8 @@
   --shadow-card: 111, 7, 250, 0.25;
 }
 
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -28,4 +30,17 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-position: center center;
+}
+.cursor{ 
+   
+  z-index: auto;
+  pointer-events: none;
+  filter: blur(3px);
+  background-color: #111;
+  height: 22px;
+  width: 22px;  
+  border-radius:100%;
+  position:fixed;
+  top: -10px;
+  left: -10px;
 }

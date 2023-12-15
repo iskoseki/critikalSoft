@@ -1,4 +1,3 @@
-import Container from "@/components/Container/Container"
 import Greeting from "@/components/Greeting/Greeting"
 
 /**
@@ -6,8 +5,10 @@ import Greeting from "@/components/Greeting/Greeting"
  * @return {JSX.Element} The rendered Home component.
  */
 export default function Home() {
+
   return (
-   <main className="flex min-h-screen flex-col items-center justify-center">
+   <main className=" flex min-h-screen flex-col items-center justify-center">
+   
     <Greeting/>
    </main>
 
