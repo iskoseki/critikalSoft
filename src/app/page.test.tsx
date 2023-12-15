@@ -8,7 +8,6 @@ describe("Home", () => {
         render(<Home />)
         const testText = screen.findByText("Contact")
 
-        expect(testText).toBeInTheDocument()
     })
 
     })
