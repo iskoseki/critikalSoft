@@ -23,7 +23,7 @@ enum resolution {
   return (
 
       <div className='fixed w-full top-0 xl:my-6 my-2 z-50 flex justify-center '>
-    <nav className={`shadow-md bg-gray-200 ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center px-4 py-2 rounded-3xl transition-all duration-500 ease-in`} >
+    <nav className={`shadow-md bg-gray-200 ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center px-4 py-2 rounded-3xl transition-all duration-600 ease-in`} >
       
        {/*LOGO HERE*/}
       <div className="flex sm:justify-end items-center cursor-pointer gap-5">
