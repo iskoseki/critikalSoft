@@ -9,8 +9,6 @@
   --shadow-card: 111, 7, 250, 0.25;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -31,8 +29,12 @@ body {
   background-position: center;
   background-position: center center;
 }
+body.dark-mode {
+  background-image: none;
+  background-color: #1a202c;
+  color: #000000 !important;
+}
 .cursor{ 
-   
   z-index: auto;
   pointer-events: none;
   filter: blur(3px);
