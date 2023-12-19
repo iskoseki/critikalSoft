@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
-import { Prompt, League_Gothic } from 'next/font/google'
+import { DarkModeProvider } from '@/context/DarkModeContext'
+import { Prompt } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer/Footer'
+import Container from '@/components/Container/Container'
 
 const inter = Prompt({
   subsets: ['latin'],
@@ -19,13 +21,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-        <Navbar/>
+        <DarkModeProvider>
+        <Container>
+          <Navbar/>
         {children}
         <Footer/>
+        </Container>
+      
+ 
+       
+        </DarkModeProvider>
+      
         
         </body>
     </html>

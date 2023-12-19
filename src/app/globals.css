@@ -29,15 +29,11 @@ body {
   background-position: center;
   background-position: center center;
 }
-body.dark-mode {
-  background-image: none;
-  background-color: #1a202c;
-  color: #000000 !important;
-}
+
 .cursor{ 
   z-index: auto;
   pointer-events: none;
-  filter: blur(3px);
+  filter: blur(2px);
   background-color: #111;
   height: 22px;
   width: 22px;  

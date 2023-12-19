@@ -1,35 +1,16 @@
-// components/DarkModeToggle.js
-import { useState, useEffect } from 'react';
+// components/DarkModeToggle.tsx
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { useDarkMode } from '../../context/DarkModeContext';
 
-const DarkModeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Verifica si el usuario ya ha seleccionado el modo oscuro
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode) {
-      setIsDarkMode(JSON.parse(savedMode));
-    } else {
-      // Si no hay preferencia almacenada, utiliza la configuración del sistema
-      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setIsDarkMode(prefersDarkMode);
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    // Guarda la preferencia del usuario en el almacenamiento local
-    localStorage.setItem('darkMode', JSON.stringify(newMode));
-
-    // Aplica la clase al elemento body o a tu contenedor principal
-    document.body.classList.toggle('dark-mode', newMode);
-  };
+const DarkModeToggle: React.FC = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <button onClick={toggleDarkMode}>
-      {isDarkMode ? <SunIcon className='w-6'/> : <MoonIcon className='w-6'/>}
+    <button
+      onClick={toggleDarkMode}
+      className={`px-4 py-2 ${isDarkMode ? 'text-gray-500' : 'text-black'} rounded-md`}
+    >
+      {isDarkMode ? <SunIcon className='w-6 '/> : <MoonIcon className='w-6'/>}
     </button>
   );
 };

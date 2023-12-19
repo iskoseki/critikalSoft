@@ -3,10 +3,13 @@
 import React, { useEffect } from 'react';
 import {EllipsisHorizontalIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import { useDarkMode } from '@/context/DarkModeContext';
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
+import Logo from '@/components/Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 enum resolution {
   Desk = 80,
   mobile = 100
@@ -42,13 +45,14 @@ enum resolution {
   return (
 
       <div className='fixed w-full top-0 xl:my-6 my-2 z-50 flex justify-center '>
-    <nav className={`shadow-md bg-gray-200 ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center px-4 py-2 rounded-3xl transition-all duration-600 ease-in`} >
+    <nav className={`shadow-md  ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center ${isDarkMode ? ' bg-gray-900 ' : ' bg-slate-200 '} px-4 py-2 rounded-3xl transition-all duration-600 ease-in`} >
       
        {/*LOGO HERE*/}
-      <div className="flex sm:justify-end items-center cursor-pointer gap-5">
-        <Link href={"/"}>
-        <img src="/images/critikal.png" alt="" className="h-8 w-18" />
-        </Link>
+      <div className=" flex sm:justify-end items-center cursor-pointer gap-5">
+        <Link href={"/"} className='transition-all duration-1000 ease-in-out'>
+          <Logo/>
+       {/* <img src="/images/logo.png" alt="" className="h-8 w-18" /> */} 
+        </Link> 
          
       </div>
 
@@ -67,7 +71,7 @@ enum resolution {
             <li key={link.name} className='my-7 md:my-0'>
               <Link
                 href={link.href}
-                className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                className={` px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? ' text-gray-500 hover:text-gray-200 ' : ' text-gray-500 hover:text-gray-900 '} transition-all duration-500 ease-in`}
               >
                 {link.name}
               </Link>
