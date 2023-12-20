@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import { DarkModeProvider } from '@/context/DarkModeContext'
 import { Prompt } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer/Footer'
 import Container from '@/components/Container/Container'
-
+import  Providers  from './providers'
 const inter = Prompt({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -23,19 +22,16 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <DarkModeProvider>
+    <html lang="en" className='dark' suppressHydrationWarning>
+      <body className={`${inter.className}dark:bg-gray-800`}>
+
+      <Providers>
         <Container>
           <Navbar/>
         {children}
         <Footer/>
         </Container>
-      
- 
-       
-        </DarkModeProvider>
-      
+     </Providers>
         
         </body>
     </html>

@@ -3,13 +3,12 @@
 import React, { useEffect } from 'react';
 import {EllipsisHorizontalIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-import { useDarkMode } from '@/context/DarkModeContext';
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 import Logo from '@/components/Logo';
+import ThemeSwitch from '../ThemeSwitch';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
 enum resolution {
   Desk = 80,
   mobile = 100
@@ -44,8 +43,8 @@ enum resolution {
 
   return (
 
-      <div className='fixed w-full top-0 xl:my-6 my-2 z-50 flex justify-center '>
-    <nav className={`shadow-md  ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center ${isDarkMode ? ' bg-gray-900 ' : ' bg-slate-200 '} px-4 py-2 rounded-3xl transition-all duration-600 ease-in`} >
+      <div className=' fixed w-full top-0 xl:my-6 my-2 z-50 flex justify-center '>
+    <nav className={`shadow-md  ${isOpen ? 'sm:w-full' : 'w-3/4' }  flex justify-between items-center dark:bg-gray-900 bg-slate-200 px-4 py-2 rounded-3xl transition-all duration-600 ease-in`} >
       
        {/*LOGO HERE*/}
       <div className=" flex sm:justify-end items-center cursor-pointer gap-5">
@@ -71,14 +70,14 @@ enum resolution {
             <li key={link.name} className='my-7 md:my-0'>
               <Link
                 href={link.href}
-                className={` px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? ' text-gray-500 hover:text-gray-200 ' : ' text-gray-500 hover:text-gray-900 '} transition-all duration-500 ease-in`}
+                className={` px-3 py-2 rounded-md text-sm font-medium ${true ? ' text-gray-500 hover:text-gray-200 ' : ' text-gray-500 hover:text-gray-900 '} transition-all duration-500 ease-in`}
               >
                 {link.name}
               </Link>
             </li>
           ))}
         </ul>
-      <DarkModeToggle/>
+      <ThemeSwitch/>
             
     </nav>
     </div>

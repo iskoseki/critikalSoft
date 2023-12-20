@@ -1,12 +1,9 @@
-import { useDarkMode } from "../../context/DarkModeContext"
-
+import { useDarkMode } from "@/context/DarkModeContext";
 export default function Container({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { isDarkMode } = useDarkMode(); 
- 
-  const className = isDarkMode ? 'bg-gray-900' : 'bg-slate-200';
+  const className = 'flex flex-col justify-center items-center h-screen';
   return <div className={className}>{children}</div>;
 }
