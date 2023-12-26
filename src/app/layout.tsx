@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer/Footer'
 import Container from '@/components/Container/Container'
 import  Providers  from './providers'
+import Cursor from '@/components/Greeting/MouseCustom'
 const inter = Prompt({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -26,7 +27,12 @@ export default function RootLayout({
       <body className={`${inter.className}dark:bg-gray-800`}>
 
       <Providers>
+        
         <Container>
+            { /*Cursor
+             <Cursor/>
+             */}
+     
           <Navbar/>
         {children}
         <Footer/>

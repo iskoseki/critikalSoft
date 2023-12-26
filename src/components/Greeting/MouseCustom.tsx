@@ -33,6 +33,6 @@ export default function Cursor(){
     }
   }
     return (
-          <motion.div variants={variants} animate="default"  className="cursor z-50"></motion.div>
+          <motion.div variants={variants} animate="default"  className="cursor relative z-50"></motion.div>
     )
 }
