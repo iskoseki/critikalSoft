@@ -2,7 +2,7 @@ import Container from "@/components/Container/Container";
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-interface Card {
+export interface Card {
   title: string;
   subtitle: string;
   description: string;
